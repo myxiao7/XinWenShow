@@ -27,6 +27,8 @@ import com.nostra13.universalimageloader.core.DisplayImageOptions;
 import com.nostra13.universalimageloader.core.listener.ImageLoadingProgressListener;
 import com.nostra13.universalimageloader.core.listener.SimpleImageLoadingListener;
 import com.sizhuo.xinwenshow.bean.SplashBean;
+import com.sizhuo.xinwenshow.dao.Const;
+import com.sizhuo.xinwenshow.util.ImageLoaderHelper;
 import com.sizhuo.xinwenshow.util.MyBitmapCache;
 import com.sizhuo.xinwenshow.util.NetworkCheck;
 
@@ -51,7 +53,7 @@ public class Splash extends Activity {
     private Button btn;//标题
     private RequestQueue queue;
     private JsonObjectRequest jsonObjectRequest;
-    private final String URL = "http://192.168.1.114:8080/xinwen/index.html";
+    private final String URL = Const.URL_SPlash;
     private SplashBean splashBean;
 
     @Override
@@ -67,6 +69,7 @@ public class Splash extends Activity {
             public void onResponse(JSONObject jsonObject) {
                 //获取数据，转化为实体
                 splashBean = new Gson().fromJson(jsonObject.toString(), SplashBean.class);
+                Log.d("xinwen",jsonObject.toString());
                 setBitmap(splashBean);
 
             }
@@ -82,6 +85,14 @@ public class Splash extends Activity {
         });
         queue.add(jsonObjectRequest);
         jsonObjectRequest.setTag("jsonObjectRequest");
+        btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(Splash.this, MainActivity.class);
+                Splash.this.startActivity(intent);
+                Splash.this.finish();
+            }
+        });
     }
 
     /**
@@ -94,7 +105,7 @@ public class Splash extends Activity {
             btn.setVisibility(View.VISIBLE);
             Log.d("xinwen", splashBean.getSkip());
         }
-        DisplayImageOptions options = new DisplayImageOptions.Builder()
+      /*  DisplayImageOptions options = new DisplayImageOptions.Builder()
                 .cacheInMemory(true)
                 .cacheOnDisk(true)
                 .bitmapConfig(Bitmap.Config.RGB_565)
@@ -104,16 +115,9 @@ public class Splash extends Activity {
             @Override
             public void onProgressUpdate(String s, View view, int i, int i1) {
             }
-        });
+        });*/
+        ImageLoaderHelper.getInstance().loadImage(splashBean.getUrl(),img);
 
-        btn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(Splash.this, MainActivity.class);
-                Splash.this.startActivity(intent);
-                Splash.this.finish();
-            }
-        });
     }
 
     private void init() {
