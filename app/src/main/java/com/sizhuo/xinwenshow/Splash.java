@@ -60,10 +60,6 @@ public class Splash extends Activity {
         setContentView(R.layout.activity_splash);
         //初始化控件和配置
         init();
-        Calendar calendar = Calendar.getInstance();
-//        calendar.add(Calendar.DAY_OF_MONTH,1);
-        int s  = calendar.WEEK_OF_MONTH;
-        Log.d("xinwen","----------"+s);
 
         //获取splash信息
         jsonObjectRequest = new JsonObjectRequest(URL, null, new Response.Listener<JSONObject>() {
@@ -88,6 +84,10 @@ public class Splash extends Activity {
         jsonObjectRequest.setTag("jsonObjectRequest");
     }
 
+    /**
+     * 加载图片和配置按钮
+     * @param splashBean
+     */
     private void setBitmap(SplashBean splashBean) {
         //是否需要跳过
         if (splashBean.getSkip().equals("true")) {
