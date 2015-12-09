@@ -4,10 +4,10 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     >
-    <com.jorge.circlelibrary.ClickableImageView
-        android:id="@+id/frag01_clickimg_view"
-        android:layout_width="match_parent"
+    <TextView
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:text="111111111112222222222222333333333333"
         />
     <android.support.v7.widget.RecyclerView
         android:id="@+id/frag01_recycler_view"
