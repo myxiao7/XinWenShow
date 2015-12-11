@@ -3,6 +3,8 @@ package com.sizhuo.xinwenshow.adapter;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
+import android.view.View;
+import android.view.ViewGroup;
 
 import java.util.List;
 
@@ -15,16 +17,15 @@ import java.util.List;
  * @version 1.0
  */
 public class MyFragPageAdapter extends FragmentPagerAdapter {
-    private List<Fragment> fragments;
-    private String []titles;
+    List<Fragment> fragments;
+    String[] titles = {"热点","体育","烟台","视频","其他"};
     public MyFragPageAdapter(FragmentManager fm) {
         super(fm);
     }
 
-    public MyFragPageAdapter(FragmentManager fm, List<Fragment> fragments, String[] titles) {
+    public MyFragPageAdapter(FragmentManager fm, List<Fragment> fragments) {
         super(fm);
         this.fragments = fragments;
-        this.titles = titles;
     }
 
     @Override
@@ -41,4 +42,5 @@ public class MyFragPageAdapter extends FragmentPagerAdapter {
     public CharSequence getPageTitle(int position) {
         return titles[position];
     }
+
 }

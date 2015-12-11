@@ -10,6 +10,7 @@ import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -18,6 +19,7 @@ import android.view.WindowManager;
 
 import com.sizhuo.xinwenshow.adapter.MyFragPageAdapter;
 import com.sizhuo.xinwenshow.fragment.Frag01;
+import com.sizhuo.xinwenshow.fragment.tab01;
 import com.sizhuo.xinwenshow.util.StatusBar;
 import com.sizhuo.xinwenshow.util.SystemBarTintManager;
 
@@ -34,9 +36,13 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
         initViews();
-        MyFragPageAdapter myFragPageAdapter = new MyFragPageAdapter(getSupportFragmentManager(),fragments,titles);
+        for (int i = 0; i < 5; i++) {
+            Fragment frag01 = new Frag01();
+            fragments.add(frag01);
+        }
+        Log.d("xinwen",fragments.size()+"----------");
+        MyFragPageAdapter myFragPageAdapter = new MyFragPageAdapter(getSupportFragmentManager(),fragments);
         viewPager.setAdapter(myFragPageAdapter);
         tabLayout.setupWithViewPager(viewPager);
         tabLayout.setTabsFromPagerAdapter(myFragPageAdapter);
@@ -55,10 +61,7 @@ public class MainActivity extends AppCompatActivity {
         tabLayout.addTab(tabLayout.newTab().setText("财经"));
         tabLayout.addTab(tabLayout.newTab().setText("视频"));
         tabLayout.addTab(tabLayout.newTab().setText("其他"));*/
-        for (int i = 0; i < 5; i++) {
-            Fragment frag01 = new Frag01();
-            fragments.add(frag01);
-        }
+
     }
 
 

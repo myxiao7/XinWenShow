@@ -1,5 +1,7 @@
 package com.sizhuo.xinwenshow.bean;
 
+import com.google.gson.annotations.SerializedName;
+
 /**
  * 项目名称: XinWenShow
  * 类描述:新闻列表bean
@@ -14,18 +16,24 @@ public class NewsBean {
      */
     public String title;
      /**
-     * 内容
+     * url
      */
     public String url;
      /**
      * 缩略图
      */
     public String image_url;
+    /**
+     * 缩略图
+     */
+    @SerializedName("abstract")
+    public String des;
 
-    public NewsBean(String title, String url, String image_url) {
+    public NewsBean(String title, String url, String image_url, String des) {
         this.title = title;
         this.url = url;
         this.image_url = image_url;
+        this.des = des;
     }
 
     public String getTitle() {
@@ -50,5 +58,13 @@ public class NewsBean {
 
     public void setImage_url(String image_url) {
         this.image_url = image_url;
+    }
+
+    public String getDes() {
+        return des;
+    }
+
+    public void setDes(String des) {
+        this.des = des;
     }
 }
