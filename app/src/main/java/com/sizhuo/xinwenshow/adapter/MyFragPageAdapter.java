@@ -18,7 +18,7 @@ import java.util.List;
  */
 public class MyFragPageAdapter extends FragmentPagerAdapter {
     List<Fragment> fragments;
-    String[] titles = {"热点","体育","烟台","视频","其他"};
+    String[] titles = {"热点","体育","烟台","视频","地图"};
     public MyFragPageAdapter(FragmentManager fm) {
         super(fm);
     }

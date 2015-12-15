@@ -88,7 +88,7 @@ public class Splash extends Activity {
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(Splash.this, MainActivity.class);
+                Intent intent = new Intent(Splash.this, Menu.class);
                 Splash.this.startActivity(intent);
                 Splash.this.finish();
             }

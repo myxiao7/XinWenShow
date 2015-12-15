@@ -19,7 +19,7 @@ import android.view.WindowManager;
 
 import com.sizhuo.xinwenshow.adapter.MyFragPageAdapter;
 import com.sizhuo.xinwenshow.fragment.Frag01;
-import com.sizhuo.xinwenshow.fragment.tab01;
+import com.sizhuo.xinwenshow.fragment.Frag05;
 import com.sizhuo.xinwenshow.util.StatusBar;
 import com.sizhuo.xinwenshow.util.SystemBarTintManager;
 
@@ -30,17 +30,17 @@ public class MainActivity extends AppCompatActivity {
     private Toolbar toolbar;//标题栏
     private TabLayout tabLayout;//导航栏
     private ViewPager viewPager;
-    private String[] titles = {"热点","体育","烟台","视频","其他"};
     private List<Fragment> fragments = new ArrayList<Fragment>();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         initViews();
-        for (int i = 0; i < 5; i++) {
+        for (int i = 0; i < 4; i++) {
             Fragment frag01 = new Frag01();
             fragments.add(frag01);
         }
+        fragments.add(new Frag05());
         Log.d("xinwen",fragments.size()+"----------");
         MyFragPageAdapter myFragPageAdapter = new MyFragPageAdapter(getSupportFragmentManager(),fragments);
         viewPager.setAdapter(myFragPageAdapter);

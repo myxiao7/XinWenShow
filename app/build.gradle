@@ -28,4 +28,5 @@ dependencies {
     compile 'com.google.code.gson:gson:2.2.4'
     compile 'com.android.support:design:23.1.1'
     dependencies { compile 'com.jorge.circleview:circlelibrary:1.0.0' }
+    compile files('libs/locSDK_6.13.jar')
 }

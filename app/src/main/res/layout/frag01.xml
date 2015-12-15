@@ -8,7 +8,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="111111111112222222222222333333333333"
+        android:text="新闻"
         />
     <!--<android.support.v7.widget.RecyclerView
         android:id="@+id/frag01_recycler_view"
