@@ -17,7 +17,7 @@ import java.util.List;
 
 /**
  * 项目名称: XinWenShow
- * 类描述:地图
+ * 类描述:新闻
  * Created by My灬xiao7
  * date: 2015/12/11
  *

@@ -11,7 +11,7 @@ import com.sizhuo.xinwenshow.R;
 
 /**
  * 项目名称: XinWenShow
- * 类描述:地图
+ * 类描述:我的
  * Created by My灬xiao7
  * date: 2015/12/11
  *
